@@ -1,0 +1,26 @@
+specVersion: 0.0.3
+description: pixelpuzzle
+repository: https://github.com/pixel-puzzle/pixelpuzzle-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: OptionNft
+    network: bsc
+    source:
+      address: "0xf6401646676a87bbd0fa952fbbe8869516cc541c"
+      abi: OptionNft
+      startBlock: 3369000
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - OptionNft
+      abis:
+        - name: OptionNft
+          file: ./abis/OptionNft.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/OptionNft.ts
