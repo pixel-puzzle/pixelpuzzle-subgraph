@@ -1,0 +1,6 @@
+type Option @entity {
+  id: ID!
+  from: Bytes!
+  to: Bytes!
+  tokenId: BigInt!
+}
