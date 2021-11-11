@@ -1,4 +1,6 @@
 specVersion: 0.0.2
+description: pixelpuzzle
+repository: https://github.com/pixel-puzzle/pixelpuzzle-subgraph
 schema:
   file: schema.graphql
 dataSources:
