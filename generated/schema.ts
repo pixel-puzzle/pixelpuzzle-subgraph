@@ -12,7 +12,7 @@ import {
   BigDecimal
 } from "@graphprotocol/graph-ts";
 
-export class Option extends Entity {
+export class OptionTransfer extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
@@ -20,17 +20,17 @@ export class Option extends Entity {
 
   save(): void {
     let id = this.get("id");
-    assert(id !== null, "Cannot save Option entity without an ID");
+    assert(id !== null, "Cannot save OptionTransfer entity without an ID");
     assert(
       id.kind == ValueKind.STRING,
-      "Cannot save Option entity with non-string ID. " +
+      "Cannot save OptionTransfer entity with non-string ID. " +
         'Considering using .toHex() to convert the "id" to a string.'
     );
-    store.set("Option", id.toString(), this);
+    store.set("OptionTransfer", id.toString(), this);
   }
 
-  static load(id: string): Option | null {
-    return store.get("Option", id) as Option | null;
+  static load(id: string): OptionTransfer | null {
+    return store.get("OptionTransfer", id) as OptionTransfer | null;
   }
 
   get id(): string {

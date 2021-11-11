@@ -1,4 +1,4 @@
-type Option @entity {
+type OptionTransfer @entity {
   id: ID!
   from: Bytes!
   to: Bytes!
